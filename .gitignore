@@ -1,0 +1,9 @@
+# Ignore environment files
+backend/.env
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Node
+node_modules/
