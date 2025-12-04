@@ -42,7 +42,9 @@ jobs:
           # Use the service directory as the build context so Dockerfile COPY paths
           # that reference local files (e.g. requirements.txt) resolve correctly.
           context: ./${{ matrix.service }}
-          file: Dockerfile
+          # Use the explicit Dockerfile path relative to the repository root to
+          # avoid buildx failing to locate the file in some runner setups.
+          file: ./${{ matrix.service }}/Dockerfile
           push: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
           tags: |
             ghcr.io/${{ github.repository_owner }}/meme-generator-${{ matrix.service }}:latest
