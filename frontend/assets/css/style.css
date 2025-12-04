@@ -1,0 +1,39 @@
+*{box-sizing:border-box}
+:root{
+	--bg:#f6f8fa; --card:#ffffff; --muted:#6b7280; --accent:#2563eb; --accent-2:#06b6d4; --radius:10px;
+}
+body{background:var(--bg);margin:0;padding:20px;font-family:Roboto,Arial,Helvetica,sans-serif;color:#111}
+.container{max-width:1100px;margin:0 auto}
+.app-header h1{margin:0;font-family:Anton,Impact,Arial,sans-serif;font-size:28px}
+.app-header .subtitle{margin:6px 0 18px;color:var(--muted);font-size:14px}
+.layout{display:flex;gap:20px}
+.panel{width:320px;background:var(--card);padding:16px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+.panel .field{margin-bottom:12px}
+.panel label{display:block;font-size:14px;color:#111}
+.file-label input[type=file]{display:block;margin-top:8px}
+.sample-list{display:flex;gap:8px}
+.sample{flex:1;padding:8px 10px;border-radius:8px;border:1px solid #e6e9ee;background:#fafafa;cursor:pointer}
+.sample:hover{background:#f0f6ff}
+.text-inputs input[type=text]{width:100%;padding:8px;border:1px solid #e6e9ee;border-radius:8px;margin-top:6px}
+.controls-row{display:flex;gap:8px;align-items:center}
+select, input[type=color], input[type=range]{margin-left:8px}
+#fontSizeVal{font-weight:700;margin-left:8px}
+.actions{display:flex;gap:8px}
+.btn{padding:8px 12px;border-radius:8px;border:1px solid #dbeafe;background:#fff;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:none}
+.btn-light{background:#fff;border:1px solid #e6e9ee;padding:6px 8px;border-radius:8px}
+
+.preview{flex:1;background:var(--card);padding:16px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+.preview h2{margin:0 0 8px}
+.canvas-wrap{width:100%;overflow:auto;display:flex;justify-content:center}
+canvas{max-width:100%;border-radius:6px;border:1px solid #e6e9ee;touch-action:none}
+.status{margin-top:8px;color:var(--muted)}
+
+.generated-result{margin-top:12px;display:flex;gap:12px;align-items:center}
+.generated-result img{max-width:240px;border-radius:6px;border:1px solid #e6e9ee}
+.generated-result a{display:inline-block;padding:8px 10px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none}
+
+@media (max-width:880px){
+	.layout{flex-direction:column}
+	.panel{width:100%}
+}

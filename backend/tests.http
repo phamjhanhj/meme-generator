@@ -1,0 +1,19 @@
+### Successful meme generation (replace image path with a real file on your machine)
+# NOTE: Do NOT set `Content-Type` manually — clients (VS Code REST Client or curl) must set the multipart boundary.
+# For the VS Code REST Client, use the file attachment syntax shown below (update the path):
+POST http://127.0.0.1:8000/meme-generation
+
+@image=@D:/meme-generator/backend/tests/sample.jpg;type=image/jpeg
+text=Hello from tests.http - giữ nguyên ý nghĩa, làm ngắn gọn
+font_size=48
+color=white
+position=bottom
+
+### Missing text (should return 422 / validation error)
+POST http://127.0.0.1:8000/meme-generation
+
+@image=@D:/meme-generator/backend/tests/sample.jpg;type=image/jpeg
+
+### curl equivalent (save output to meme.png)
+# Use curl's -F which constructs multipart form data and sets the boundary automatically:
+# curl -X POST "http://127.0.0.1:8000/meme-generation" -F "image=@D:/meme-generator/backend/tests/sample.jpg" -F "text=Hello from curl" -F "font_size=48" -F "color=white" -F "position=bottom" --output meme.png
